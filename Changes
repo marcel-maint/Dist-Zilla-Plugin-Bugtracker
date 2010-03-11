@@ -1,6 +1,7 @@
 Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
+    - fix POD
 
 1.100700  2010-03-11 12:33:29 Europe/Vienna
     - original version
