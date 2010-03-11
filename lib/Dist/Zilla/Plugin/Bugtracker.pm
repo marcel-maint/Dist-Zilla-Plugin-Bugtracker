@@ -36,23 +36,10 @@ In C<dist.ini>:
 
 =head1 DESCRIPTION
 
-This is an extension of L<Dist::Zilla::Plugin::InlineFiles>, providing the
-following files
-
-  xt/release/synopsis.t - a standard Test::Synopsis test
+This plugin sets the distribution's bugtracker URL as metadata.
 
 =function metadata
 
 Sets the bugtracker URL in the distribution's metadata.
 
 =cut
-__DATA__
-___[ xt/release/synopsis.t ]___
-#!perl
-
-use Test::More;
-
-eval "use Test::Synopsis";
-plan skip_all => "Test::Synopsis required for testing synopses"
-  if $@;
-all_synopsis_ok('lib');
