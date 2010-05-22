@@ -8,7 +8,7 @@ use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
 
 sub metadata {
-    my ($self, $arg) = @_;
+    my $self = shift;
     return {
         resources => {
             bugtracker =>
