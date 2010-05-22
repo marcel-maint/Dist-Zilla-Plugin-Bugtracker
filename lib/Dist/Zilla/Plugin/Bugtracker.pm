@@ -3,8 +3,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::Bugtracker;
-
-# ABSTRACT: automatically sets the bugtracker URL
+# ABSTRACT: Automatically sets the bugtracker URL
 use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
 
