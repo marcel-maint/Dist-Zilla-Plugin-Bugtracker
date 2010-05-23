@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::Bugtracker;
+
 # ABSTRACT: Automatically sets the bugtracker URL
 use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
@@ -11,9 +12,11 @@ sub metadata {
     my $self = shift;
     return {
         resources => {
-            bugtracker =>
-              sprintf('http://rt.cpan.org/Public/Dist/Display.html?Name=%s',
-                $self->zilla->name)
+            bugtracker => {
+                url =>
+                  sprintf('http://rt.cpan.org/Public/Dist/Display.html?Name=%s',
+                    $self->zilla->name)
+            }
         }
     };
 }
