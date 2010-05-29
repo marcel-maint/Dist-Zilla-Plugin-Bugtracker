@@ -1,7 +1,7 @@
 Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
-    - comply with CPAN::Meta::Resources and Dist::Zilla v3
+    - comply with CPAN::Meta::Resources and Dist::Zilla v3 (thanks apocalypse)
 
 1.101420  2010-05-22 14:11:15 Europe/Vienna
     - removed weaver.ini since that's handled in Dist::Zilla's [@MARCEL] now
