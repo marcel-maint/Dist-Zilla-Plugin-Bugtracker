@@ -10,12 +10,16 @@ with 'Dist::Zilla::Role::MetaProvider';
 
 sub metadata {
     my $self = shift;
+
+    my $web = sprintf('http://rt.cpan.org/Public/Dist/Display.html?Name=%s',
+      $self->zilla->name);
+    my $mailto = sprintf('bug-%s at rt.cpan.org', lc( $self->zilla->name ) );
+
     return {
         resources => {
             bugtracker => {
-                url =>
-                  sprintf('http://rt.cpan.org/Public/Dist/Display.html?Name=%s',
-                    $self->zilla->name)
+                web => $web,
+                mailto => $mailto,
             }
         }
     };
@@ -38,7 +42,14 @@ In C<dist.ini>:
 
 =head1 DESCRIPTION
 
-This plugin sets the distribution's bugtracker URL as metadata.
+This plugin sets the distribution's bugtracker URL as metadata. This plugin
+assumes you are using the CPAN RT bugtracker and sets those 2 fields:
+
+  web = http://rt.cpan.org/Public/Dist/Display.html?Name=$dist
+  mailto = bug-$dist at rt.cpan.org
+
+Please see L<CPAN::Meta::Spec|http://search.cpan.org/dist/CPAN-Meta/lib/CPAN/Meta/Spec.pm#resources>
+for more information.
 
 =function metadata
 
