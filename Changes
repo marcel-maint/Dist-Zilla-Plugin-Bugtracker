@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
+
+1.102670  2010-09-24 18:38:23 Europe/Vienna
     - make bugtracker URL and email address configurable (idea by Mike Doherty)
 
 1.101490  2010-05-29 22:33:57 Europe/Vienna
