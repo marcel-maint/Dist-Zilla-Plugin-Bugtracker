@@ -1,6 +1,7 @@
 Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
+    - make bugtracker URL and email address configurable (idea by Mike Doherty)
 
 1.101490  2010-05-29 22:33:57 Europe/Vienna
     - comply with CPAN::Meta::Resources and Dist::Zilla v3 (thanks apocalypse)
