@@ -15,8 +15,9 @@ has web => (
     default => 'http://rt.cpan.org/Public/Dist/Display.html?Name=%s',
 );
 has mailto => (
-    is      => 'ro',
-    isa     => 'Str',
+    is        => 'rw',
+    isa       => 'Str',
+    predicate => 'has_mailto',
 );
 
 sub interpolate {
@@ -32,13 +33,14 @@ sub interpolate {
 sub metadata {
     my $self = shift;
     my $web = $self->interpolate($self->web, $self->zilla->name);
-    my $mailto = $self->mailto;
-    if (!defined($mailto) && index($web, 'http://rt.cpan.org/') == 0) {
-        $mailto = 'bug-%l at rt.cpan.org';
+    if (!$self->has_mailto && index($web, 'http://rt.cpan.org/') == 0) {
+        $self->mailto('bug-%l at rt.cpan.org');
     }
     my $result = {};
     $result->{resources}{bugtracker}{web} = $web;
-    $result->{resources}{bugtracker}{mailto} = $mailto if defined $mailto;
+    $result->{resources}{bugtracker}{mailto} =
+      $self->interpolate($self->mailto, $self->zilla->name)
+      if $self->has_mailto && length $self->mailto;
     $result;
 }
 __PACKAGE__->meta->make_immutable;
@@ -98,6 +100,13 @@ will produce the defaults:
 
 Example 2:
 
+To suppress the C<mailto> from example 1, use:
+
+    [Bugtracker]
+    mailto =
+
+Example 3:
+
     [Bugtracker]
     web = http://github.com/me/%s/issues
 
@@ -105,7 +114,7 @@ will only produce a C<web> entry, but not a C<mailto> entry:
 
     web: http://github.com/me/Foo-Bar/issues
 
-Example 3:
+Example 4:
 
     [Bugtracker]
     mailto = me@example.org
@@ -115,7 +124,7 @@ will produce:
     web:    http://rt.cpan.org/Public/Dist/Display.html?Name=Foo-Bar
     mailto: me@example.org
 
-Example 4:
+Example 5:
 
     [Bugtracker]
     web = http://github.com/me/%s/issues
