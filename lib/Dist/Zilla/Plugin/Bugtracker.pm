@@ -151,5 +151,3 @@ Both the C<web> and C<mailto> strings are interpolated as follows:
 =method metadata
 
 Sets the bugtracker URL and possibly email address in the distribution's metadata.
-
-=cut
