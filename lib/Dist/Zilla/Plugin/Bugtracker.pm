@@ -6,12 +6,10 @@ package Dist::Zilla::Plugin::Bugtracker;
 
 # ABSTRACT: Automatically sets the bugtracker URL and mailto
 use Moose;
-use MooseX::Types::URI qw(Uri);
 with 'Dist::Zilla::Role::MetaProvider';
 has web => (
     is      => 'ro',
-    isa     => Uri,
-    coerce  => 1,
+    isa     => 'Str',
     default => 'http://rt.cpan.org/Public/Dist/Display.html?Name=%s',
 );
 has mailto => (

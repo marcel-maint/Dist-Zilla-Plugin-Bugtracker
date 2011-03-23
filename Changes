@@ -2,6 +2,7 @@ Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
     - fixed POD
+    - bugtracker URL is no longer a URI::http object, which is unsupported
 
 1.102670  2010-09-24 18:38:23 Europe/Vienna
     - make bugtracker URL and email address configurable (idea by Mike Doherty)
