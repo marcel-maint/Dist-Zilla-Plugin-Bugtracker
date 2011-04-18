@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
+
+1.111080  2011-04-18 11:53:54 Europe/Vienna
     - fixed POD
     - bugtracker URL is no longer a URI::http object, which is unsupported
       (thanks doherty)
