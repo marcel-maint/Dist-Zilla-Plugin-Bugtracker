@@ -128,7 +128,7 @@ Example 5:
     web = http://github.com/me/%s/issues
     mailto = bug-%U@example.org
 
-will only produce a C<web> entry, but not a C<mailto> entry:
+will produce both a C<web> entry and a C<mailto> entry:
 
     web:    http://github.com/me/Foo-Bar/issues
     mailto: bug-FOO-BAR@example.org
